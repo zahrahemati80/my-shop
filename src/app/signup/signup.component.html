@@ -1,0 +1,37 @@
+<form (submit)='onSubmit($event)' >
+  <label>نام:<input type='text' [formField]='signupForm.name'></label>
+  <label>نام خانوادگی:<input type='text' [formField]='signupForm.lastname'></label>
+  <label>ایمیل:<input type='email' [formField]='signupForm.email'></label>
+  <label>پسورد:<input type='password' [formField]='signupForm.password'></label>
+  <label>کدملی:<input type='number' [formField]='signupForm.idnumber'></label>
+  <label>مدرک خود را انتخاب کنید:</label>
+
+    <label>دیپلم<input type='checkbox' [formField]='signupForm.liscense'></label>
+    <label>کارشناسی<input type='checkbox' [formField]='signupForm.liscense'></label>
+    <label>کارشناسی ارشد<input type='checkbox' [formField]='signupForm.liscense'></label>
+
+  <button>ثبت نام</button>
+</form>
+<!--<form (submit)="onSubmit($event)">-->
+<!--  <label>email:</label><input type="email" [formField]="loginForm.email" placeholder="Inter ur email">-->
+<!--  <label>password:</label>-->
+<!--  <input type="password" [formField]="loginForm.password" placeholder=" Inter ur password">-->
+
+<!--  <p>Hello {{ loginForm.email().value() }}!</p>-->
+<!--  <p>Password length: {{ loginForm.password().value().length }}</p>-->
+<!--  <button type="submit">Log In</button>-->
+<!--</form>-->
+
+
+<!--&lt;!&ndash;checkbox&ndash;&gt;-->
+<!--<form (submit)="check($event)">-->
+<!--  <label>-->
+<!--    <input type="checkbox" [formField]="loginForm.emailNotifications" />-->
+<!--    Email notifications-->
+<!--  </label>-->
+<!--  <label>-->
+<!--    <input type="checkbox" [formField]="loginForm.smsNotifications" />-->
+<!--    SMS notifications-->
+<!--  </label>-->
+<!--  <button>check me</button>-->
+<!--</form>-->

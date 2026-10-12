@@ -1,0 +1,21 @@
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: lightgray;
+  direction: rtl;
+  padding: 20px;
+
+
+}
+input{
+  display: flex;
+  justify-content: space-between;
+}
+.option{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
