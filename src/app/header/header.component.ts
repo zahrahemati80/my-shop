@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
@@ -11,12 +11,10 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 
 })
 export class HeaderComponent {
-   title = 'header';
-   name = 'header';
-  sayHello() {
-    console.log(this.name+"  hello");
-  }
 
+  // sayHello() {
+  //   console.log(this.name+"  hello");
+  // }
 
 }
 

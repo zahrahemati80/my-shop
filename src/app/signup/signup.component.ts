@@ -1,5 +1,5 @@
-import { Component, signal} from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject, signal } from '@angular/core';
+import { Router, RouterOutlet } from '@angular/router';
 import { form, FormField } from '@angular/forms/signals';
 interface SignupData {
   name:string;
@@ -13,11 +13,12 @@ interface SignupData {
 @Component({
   selector: 'app-signup',
   imports: [FormField],
-  templateUrl: './signup.component.html',
+  templateUrl:'./signup.component.html',
   styleUrl: './signup.component.css',
 
 })
 export class SignupComponent {
+  private readonly router= inject(Router)
    signupModel=signal<SignupData>(
     {
       name:'',
@@ -35,6 +36,9 @@ export class SignupComponent {
     console.log("user data is:",getData);
   }
 
+  back() {
+    this.router.navigate(['/']);
+  }
 }
 
 //

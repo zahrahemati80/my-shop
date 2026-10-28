@@ -1,37 +1,183 @@
-<form (submit)='onSubmit($event)' >
-  <label>نام:<input type='text' [formField]='signupForm.name'></label>
-  <label>نام خانوادگی:<input type='text' [formField]='signupForm.lastname'></label>
-  <label>ایمیل:<input type='email' [formField]='signupForm.email'></label>
-  <label>پسورد:<input type='password' [formField]='signupForm.password'></label>
-  <label>کدملی:<input type='number' [formField]='signupForm.idnumber'></label>
-  <label>مدرک خود را انتخاب کنید:</label>
 
-    <label>دیپلم<input type='checkbox' [formField]='signupForm.liscense'></label>
-    <label>کارشناسی<input type='checkbox' [formField]='signupForm.liscense'></label>
-    <label>کارشناسی ارشد<input type='checkbox' [formField]='signupForm.liscense'></label>
+<div
+  dir="rtl"
+  class="min-h-screen bg-gradient-to-br from-slate-100 via-blue-50 to-indigo-100
+         px-4 py-10 sm:py-14"
+>
+  <div class="mx-auto w-full max-w-2xl rounded-3xl border border-white
+              bg-white/90 p-5 shadow-xl shadow-slate-200/60
+              backdrop-blur sm:p-8 md:p-10">
 
-  <button>ثبت نام</button>
-</form>
-<!--<form (submit)="onSubmit($event)">-->
-<!--  <label>email:</label><input type="email" [formField]="loginForm.email" placeholder="Inter ur email">-->
-<!--  <label>password:</label>-->
-<!--  <input type="password" [formField]="loginForm.password" placeholder=" Inter ur password">-->
+    <!-- عنوان فرم -->
+    <div class="mb-8 text-center">
+      <div class="flex flex-row-reverse"><button (click)='back()' class="rounded-xl  bg-gray-600
+               px-5 py-3.5 text-sm font-bold text-white shadow-lg
+               shadow-blue-600/20 transition hover:-translate-y-0.5
+               hover:shadow-xl active:translate-y-0
+               focus:outline-none focus:ring-4 focus:ring-blue-500/20">بازگشت</button></div>
+      <div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center
+                  rounded-2xl bg-blue-100 text-blue-600">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+             viewBox="0 0 24 24" stroke-width="1.8"
+             stroke="currentColor" class="h-7 w-7">
+          <path stroke-linecap="round" stroke-linejoin="round"
+                d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.5 20.1a7.5 7.5 0 0 1 15 0A17.9 17.9 0 0 1 12 21.75a17.9 17.9 0 0 1-7.5-1.65Z" />
+        </svg>
+      </div>
 
-<!--  <p>Hello {{ loginForm.email().value() }}!</p>-->
-<!--  <p>Password length: {{ loginForm.password().value().length }}</p>-->
-<!--  <button type="submit">Log In</button>-->
-<!--</form>-->
+      <h2 class="text-2xl font-extrabold text-slate-800 sm:text-3xl">
+        ساخت حساب کاربری
+      </h2>
 
+      <p class="mt-2 text-sm leading-6 text-slate-500">
+        اطلاعات خود را وارد کنید تا ثبت‌نام شما تکمیل شود.
+      </p>
+    </div>
 
-<!--&lt;!&ndash;checkbox&ndash;&gt;-->
-<!--<form (submit)="check($event)">-->
-<!--  <label>-->
-<!--    <input type="checkbox" [formField]="loginForm.emailNotifications" />-->
-<!--    Email notifications-->
-<!--  </label>-->
-<!--  <label>-->
-<!--    <input type="checkbox" [formField]="loginForm.smsNotifications" />-->
-<!--    SMS notifications-->
-<!--  </label>-->
-<!--  <button>check me</button>-->
-<!--</form>-->
+    <form (submit)="onSubmit($event)" class="space-y-5">
+
+      <!-- نام و نام خانوادگی -->
+      <div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
+        <label class="block text-sm font-semibold text-slate-700">
+          نام
+          <input
+            type="text"
+            autocomplete="given-name"
+            [formField]="signupForm.name"
+            placeholder="نام خود را وارد کنید"
+            class="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50
+                   px-4 py-3 text-sm text-slate-800 outline-none transition
+                   placeholder:text-slate-400 focus:border-blue-500
+                   focus:bg-white focus:ring-4 focus:ring-blue-500/10"
+          />
+        </label>
+
+        <label class="block text-sm font-semibold text-slate-700">
+          نام خانوادگی
+          <input
+            type="text"
+            autocomplete="family-name"
+            [formField]="signupForm.lastname"
+            placeholder="نام خانوادگی"
+            class="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50
+                   px-4 py-3 text-sm text-slate-800 outline-none transition
+                   placeholder:text-slate-400 focus:border-blue-500
+                   focus:bg-white focus:ring-4 focus:ring-blue-500/10"
+          />
+        </label>
+      </div>
+
+      <!-- ایمیل -->
+      <label class="block text-sm font-semibold text-slate-700">
+        ایمیل
+        <input
+          type="email"
+          autocomplete="email"
+          [formField]="signupForm.email"
+          placeholder="example@email.com"
+          dir="ltr"
+          class="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50
+                 px-4 py-3 text-left text-sm text-slate-800 outline-none
+                 transition placeholder:text-slate-400 focus:border-blue-500
+                 focus:bg-white focus:ring-4 focus:ring-blue-500/10"
+        />
+      </label>
+
+      <!-- رمز عبور -->
+      <label class="block text-sm font-semibold text-slate-700">
+        رمز عبور
+        <input
+          type="password"
+          autocomplete="new-password"
+          [formField]="signupForm.password"
+          placeholder="رمز عبور خود را وارد کنید"
+          class="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50
+                 px-4 py-3 text-sm text-slate-800 outline-none transition
+                 placeholder:text-slate-400 focus:border-blue-500
+                 focus:bg-white focus:ring-4 focus:ring-blue-500/10"
+        />
+      </label>
+
+      <!-- کد ملی -->
+      <label class="block text-sm font-semibold text-slate-700">
+        کد ملی
+        <input
+          type="number"
+          inputmode="numeric"
+          autocomplete="off"
+          [formField]="signupForm.idnumber"
+          placeholder="کد ملی ۱۰ رقمی"
+          dir="ltr"
+          class="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50
+                 px-4 py-3 text-left text-sm text-slate-800 outline-none
+                 transition placeholder:text-slate-400 focus:border-blue-500
+                 focus:bg-white focus:ring-4 focus:ring-blue-500/10"
+        />
+      </label>
+
+      <!-- مدرک تحصیلی -->
+      <fieldset class="rounded-2xl border border-slate-200 bg-slate-50/70 p-4 sm:p-5">
+        <legend class="px-2 text-sm font-bold text-slate-800">
+          مدرک تحصیلی خود را انتخاب کنید
+        </legend>
+
+        <div class="mt-2 grid grid-cols-1 gap-3 sm:grid-cols-3">
+
+          <label class="flex cursor-pointer items-center gap-3 rounded-xl
+                        border border-slate-200 bg-white p-3 text-sm
+                        text-slate-700 transition hover:border-blue-300
+                        hover:bg-blue-50">
+            <input
+              type="checkbox"
+              [formField]="signupForm.liscense"
+              class="h-4 w-4 accent-blue-600"
+            />
+            دیپلم
+          </label>
+
+          <label class="flex cursor-pointer items-center gap-3 rounded-xl
+                        border border-slate-200 bg-white p-3 text-sm
+                        text-slate-700 transition hover:border-blue-300
+                        hover:bg-blue-50">
+            <input
+              type="checkbox"
+              [formField]="signupForm.liscense"
+              class="h-4 w-4 accent-blue-600"
+            />
+            کارشناسی
+          </label>
+
+          <label class="flex cursor-pointer items-center gap-3 rounded-xl
+                        border border-slate-200 bg-white p-3 text-sm
+                        text-slate-700 transition hover:border-blue-300
+                        hover:bg-blue-50">
+            <input
+              type="checkbox"
+              [formField]="signupForm.liscense"
+              class="h-4 w-4 accent-blue-600"
+            />
+            کارشناسی ارشد
+          </label>
+
+        </div>
+      </fieldset>
+
+      <!-- دکمه ثبت نام -->
+      <button
+        type="submit"
+        class="w-full rounded-xl bg-gradient-to-l from-blue-600 to-indigo-600
+               px-5 py-3.5 text-sm font-bold text-white shadow-lg
+               shadow-blue-600/20 transition hover:-translate-y-0.5
+               hover:shadow-xl active:translate-y-0
+               focus:outline-none focus:ring-4 focus:ring-blue-500/20"
+      >
+        ثبت‌نام
+      </button>
+
+      <p class="text-center text-xs leading-6 text-slate-500">
+        با ثبت‌نام، اطلاعات واردشده را تأیید می‌کنید.
+      </p>
+
+    </form>
+  </div>
+</div>

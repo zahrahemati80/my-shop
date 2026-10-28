@@ -1,0 +1,65 @@
+
+<div class="relative mx-auto w-full max-w-[404px] overflow-hidden rounded-2xl">
+
+  <!-- بنرها -->
+  <div
+    class="flex transition-transform duration-500 ease-in-out"
+    [style.transform]="'translateX(' + (currentSlide() * 100) + '%)'"
+    dir="ltr"
+  >
+    @for (banner of banners; track banner.image) {
+      <div class="w-full flex-none">
+        <img
+          [src]="banner.image"
+          [alt]="banner.alt"
+          class="block aspect-[16/9] w-full object-cover"
+        />
+      </div>
+    }
+  </div>
+
+  <!-- فلش قبلی -->
+  <button
+    type="button"
+    (click)="prev()"
+    aria-label="بنر قبلی"
+    class="absolute left-2 top-1/2 flex size-9
+           -translate-y-1/2 items-center justify-center
+           rounded-full bg-white/90 text-xl shadow"
+  >
+    &#10094;
+  </button>
+
+  <!-- فلش بعدی -->
+  <button
+    type="button"
+    (click)="next()"
+    aria-label="بنر بعدی"
+    class="absolute right-2 top-1/2 flex size-9
+           -translate-y-1/2 items-center justify-center
+           rounded-full bg-white/90 text-xl shadow"
+  >
+    &#10095;
+  </button>
+
+  <!-- نشانگر اسلایدها -->
+  <div
+    class="absolute bottom-3 left-0 flex w-full
+           justify-center gap-2"
+  >
+    @for (banner of banners; track banner.image; let i = $index) {
+      <button
+        type="button"
+        (click)="goTo(i)"
+        [attr.aria-label]="'رفتن به بنر ' + (i + 1)"
+        class="h-2 rounded-full transition-all"
+        [class.w-6]="currentSlide() === i"
+        [class.w-2]="currentSlide() !== i"
+        [class.bg-white]="currentSlide() === i"
+      ></button>
+
+    }
+  </div>
+
+</div>
+

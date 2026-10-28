@@ -1,29 +1,32 @@
- <footer class="foot">
-         <div class="home">   <img class="icon-footer" src="assets/images/front-page-svgrepo-com.svg">
-            <span class="home">خانه </span>
+
+<footer class="fixed bottom-0 left-1/2 z-50 flex w-full max-w-[404px] -translate-x-1/2 flex-row
+justify-around bg-white px-2 py-3 shadow-lg">
+         <div class="home flex flex-col items-center justify-center cursor-pointer">
+           <a (click)='goToHome()'>
+             <img class="icon-footer" src='/image/front-page-svgrepo-com.svg'>
+             <span class="home">خانه </span>
+           </a>
         </div>
-        <div class="dastebandi">
-            <img class="icon-footer" src="">
+        <div class="dastebandi flex flex-col items-center justify-center cursor-pointer">
+            <img class="icon-footer"  src='/image/category-svgrepo-com.svg' alt="">
             <span class="dastebandiha">دسته بندی</span>
         </div>
-        <div class="bascket"> <img class="icon-footer" src="footer/image/conversation-svgrepo-com.svg">
-           <a routerLink='/order'>
+        <div class="bascket flex flex-col items-center justify-center cursor-pointer"> <img class="icon-footer" src="/image/bascket.svg" alt='bascket'>
+           <a routerLink='/basket'>
               <span class="shopbascket">سبدخرید
             </span>
            </a>
           <span class="bascket-icon">
-                    <span class="product-count">{{shoppingCounter()}}</span>
+                    <span class="product-count">{{basketService.shoppingCounter()}}</span>
                 </span>
 
             </div>
-            <div class="profile">  <img class="icon-footer" src="">
-            <span class="myacount">دیجی کالای من
+            <div class="profile flex flex-col items-center justify-center cursor-pointer">
+              <img class="icon-footer" src="/image/user-svgrepo-com%20.svg">
+            <span class="myacount">پروفایل من
 
             </span>
         </div>
 
 
-
-
-
-        </footer>
+</footer>

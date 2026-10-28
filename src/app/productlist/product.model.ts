@@ -5,6 +5,7 @@ export interface Product {
   description: string;
   title: string;
   image: string;
+  category: string;
 
 }
-//drfrence between class & interface:
+//deference between class & interface:

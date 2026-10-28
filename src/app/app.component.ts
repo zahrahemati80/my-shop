@@ -1,12 +1,7 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { from } from 'rxjs';
-import {SignupComponent}from'./signup/signup.component';
 import { HeaderComponent } from './header/header.component';
-import {Sugest} from './Sugestoin/sugest.component';
 import {Footer}from './footer/footer.component';
-import{AllproductComponent}from './Allproduct/allproduct.component';
-import{Reseed}from './reseed/reseed.component';
 
 
 
@@ -15,12 +10,14 @@ import{Reseed}from './reseed/reseed.component';
   selector: 'app-root',
   imports:
     [
-      RouterOutlet
+      RouterOutlet,
+      Footer,
+      HeaderComponent
     ],
-  templateUrl: './app.html',
-  styleUrl: './app.css'
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css'
 })
-export class App {
+export class AppComponent {
  title = 'homes';
  counter: number = 0;
 

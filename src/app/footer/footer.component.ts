@@ -1,5 +1,6 @@
-import { Component, input, signal } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Component, inject, Inject, input, signal } from '@angular/core';
+import { RouterLink, RouterOutlet ,Router} from '@angular/router';
+import { BasketService } from '../services/bascketservice';
 
 @Component({
   selector: 'app-footer',
@@ -11,6 +12,13 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 })
 export class Footer {
   protected readonly title = signal('project09_angular');
-  //transport data from parent(app)to child:
-  shoppingCounter = input(0);
+  private readonly router= inject(Router)
+
+  basketService=inject(BasketService);
+
+
+  protected goToHome() {
+    this.router.navigate(['/home']);
+  }
+
 }
